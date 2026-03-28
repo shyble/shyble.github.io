@@ -1,300 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shyble — Software Engineer & AI Builder</title>
-    <style>
-        :root {
-            --bg: #0d1117;
-            --surface: #161b22;
-            --border: #30363d;
-            --text: #e6edf3;
-            --muted: #8b949e;
-            --accent: #58a6ff;
-            --accent2: #3fb950;
-            --accent3: #d2a8ff;
-        }
+---
+layout: default
+title: Shyble — Software Engineer, Data Scientist & AI Engineer
+---
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<header>
+    <h1>Shyble</h1>
+    <p>Software Engineer &middot; Data Scientist &middot; AI Engineer</p>
+    <p style="color: var(--muted); margin-top: 0.5rem; font-style: italic;">Shipping AI into production since before it was cool.</p>
+</header>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+<section>
+    <h2>Projects</h2>
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+    <div class="card">
+        <h3><a href="https://github.com/shyble/stripe2zohobooks">stripe2zohobooks</a></h3>
+        <p>Sync multiple Stripe accounts to a single Zoho Books organization — automated bookkeeping for payments, fees, and payouts.</p>
+        <div class="meta">
+            <span>TypeScript</span>
+            <span>Hono</span>
+            <span>SQLite</span>
+            <span>HTMX</span>
+        </div>
+    </div>
 
-        header {
-            padding: 4rem 0 2rem;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            color: var(--muted);
-            font-size: 1.15rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag-group-label {
-            width: 100%;
-            color: var(--muted);
-            font-size: 0.85rem;
-            margin-bottom: 0.25rem;
-            margin-top: 0.5rem;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
-            font-size: 0.85rem;
-            border: 1px solid var(--border);
-            background: var(--surface);
-        }
-
-        .tag.lang { border-color: var(--accent); color: var(--accent); }
-        .tag.ai { border-color: var(--accent3); color: var(--accent3); }
-        .tag.infra { border-color: var(--accent2); color: var(--accent2); }
-
-        .card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .card-content {
-            display: flex;
-            gap: 1.25rem;
-            align-items: center;
-        }
-
-        .card-img {
-            width: 64px;
-            height: 64px;
-            border-radius: 0.5rem;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .card h3 {
-            font-size: 1.05rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .card h3 a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .card h3 a:hover {
-            text-decoration: underline;
-        }
-
-        .card p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .card .meta {
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 0.5rem;
-        }
-
-        .card .meta span {
-            margin-right: 1rem;
-        }
-
-        .highlights {
-            list-style: none;
-            padding: 0;
-        }
-
-        .highlights li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .highlights li:last-child {
-            border-bottom: none;
-        }
-
-        .highlights li strong {
-            color: var(--text);
-        }
-
-        .contact {
-            text-align: center;
-            padding: 2rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-        }
-
-        .contact a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 1.1rem;
-        }
-
-        .contact a:hover {
-            text-decoration: underline;
-        }
-
-        .contact .links {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>Shyble</h1>
-            <p>Software Engineer &middot; Data Scientist &middot; AI Engineer</p>
-            <p style="color: var(--muted); margin-top: 0.5rem; font-style: italic;">Shipping AI into production since before it was cool.</p>
-        </header>
-
-        <section>
-            <h2>Projects</h2>
-
-            <div class="card">
-                <h3><a href="https://github.com/shyble/stripe2zohobooks">stripe2zohobooks</a></h3>
-                <p>Sync multiple Stripe accounts to a single Zoho Books organization — automated bookkeeping for payments, fees, and payouts.</p>
+    <div class="card">
+        <div class="card-content">
+            <img src="images/vole.png" alt="OpenVole" class="card-img">
+            <div>
+                <h3><a href="https://github.com/openvole/openvole">openvole</a></h3>
+                <p>Micro-agent core. The smallest possible thing that other useful things can be built on top of. An open alternative to OpenClaw.</p>
                 <div class="meta">
                     <span>TypeScript</span>
-                    <span>Hono</span>
-                    <span>SQLite</span>
-                    <span>HTMX</span>
+                    <span>AI Agents</span>
+                    <span>Microkernel</span>
                 </div>
             </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <img src="images/vole.png" alt="OpenVole" class="card-img">
-                    <div>
-                        <h3><a href="https://github.com/openvole/openvole">openvole</a></h3>
-                        <p>Micro-agent core. The smallest possible thing that other useful things can be built on top of. An open alternative to OpenClaw.</p>
-                        <div class="meta">
-                            <span>TypeScript</span>
-                            <span>AI Agents</span>
-                            <span>Microkernel</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-content">
-                    <img src="images/limnx.jpg" alt="Limnx" class="card-img">
-                    <div>
-                        <h3><a href="https://github.com/limnxos/limnx">limnx</a></h3>
-                        <p>The first AI-native operating system designed to run AI agent and inference workloads as first-class citizens.</p>
-                        <div class="meta">
-                            <span>C</span>
-                            <span>Kernel</span>
-                            <span>AI-Native OS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section>
-            <h2>Skills</h2>
-            <div class="tag-group">
-                <div class="tag-group-label">Languages & Frameworks</div>
-                <span class="tag lang">Java</span>
-                <span class="tag lang">Python</span>
-                <span class="tag lang">Go</span>
-                <span class="tag lang">TypeScript</span>
-                <span class="tag lang">Kotlin</span>
-                <span class="tag lang">Scala</span>
-                <span class="tag lang">React</span>
-                <span class="tag lang">Quarkus</span>
-                <span class="tag lang">Spring Boot</span>
-            </div>
-            <div class="tag-group">
-                <div class="tag-group-label">AI & Machine Learning</div>
-                <span class="tag ai">LLM Fine-tuning</span>
-                <span class="tag ai">RAG Pipelines</span>
-                <span class="tag ai">Semantic Search</span>
-                <span class="tag ai">AI Agents</span>
-                <span class="tag ai">OpenAI</span>
-                <span class="tag ai">Claude</span>
-                <span class="tag ai">Gemini</span>
-                <span class="tag ai">NLP</span>
-            </div>
-            <div class="tag-group">
-                <div class="tag-group-label">Infrastructure & Data</div>
-                <span class="tag infra">PostgreSQL</span>
-                <span class="tag infra">Redis</span>
-                <span class="tag infra">Docker</span>
-                <span class="tag infra">SQLite</span>
-                <span class="tag infra">Vector Search</span>
-                <span class="tag infra">RabbitMQ</span>
-                <span class="tag infra">CI/CD</span>
-            </div>
-        </section>
-
-        <section>
-            <div class="contact">
-                <p>Available for consulting, support, and custom integrations.</p>
-                <div class="links">
-                    <a href="mailto:shyble@outlook.com">shyble@outlook.com</a>
-                    <a href="https://github.com/shyble">GitHub</a>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            &copy; 2026 Shyble
-        </footer>
+        </div>
     </div>
-</body>
-</html>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="images/limnx.jpg" alt="Limnx" class="card-img">
+            <div>
+                <h3><a href="https://github.com/limnxos/limnx">limnx</a></h3>
+                <p>The first AI-native operating system designed to run AI agent and inference workloads as first-class citizens.</p>
+                <div class="meta">
+                    <span>C</span>
+                    <span>Kernel</span>
+                    <span>AI-Native OS</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="tag-group">
+        <div class="tag-group-label">Languages & Frameworks</div>
+        <span class="tag lang">Java</span>
+        <span class="tag lang">Python</span>
+        <span class="tag lang">Go</span>
+        <span class="tag lang">TypeScript</span>
+        <span class="tag lang">Kotlin</span>
+        <span class="tag lang">Scala</span>
+        <span class="tag lang">React</span>
+        <span class="tag lang">Quarkus</span>
+        <span class="tag lang">Spring Boot</span>
+    </div>
+    <div class="tag-group">
+        <div class="tag-group-label">AI & Machine Learning</div>
+        <span class="tag ai">LLM Fine-tuning</span>
+        <span class="tag ai">RAG Pipelines</span>
+        <span class="tag ai">Semantic Search</span>
+        <span class="tag ai">AI Agents</span>
+        <span class="tag ai">OpenAI</span>
+        <span class="tag ai">Claude</span>
+        <span class="tag ai">Gemini</span>
+        <span class="tag ai">NLP</span>
+    </div>
+    <div class="tag-group">
+        <div class="tag-group-label">Infrastructure & Data</div>
+        <span class="tag infra">PostgreSQL</span>
+        <span class="tag infra">Redis</span>
+        <span class="tag infra">Docker</span>
+        <span class="tag infra">SQLite</span>
+        <span class="tag infra">Vector Search</span>
+        <span class="tag infra">RabbitMQ</span>
+        <span class="tag infra">CI/CD</span>
+    </div>
+</section>
+
+<section>
+    <div class="contact">
+        <p>Available for consulting, support, and custom integrations.</p>
+        <div class="links">
+            <a href="mailto:shyble@outlook.com">shyble@outlook.com</a>
+            <a href="https://github.com/shyble">GitHub</a>
+        </div>
+    </div>
+</section>
