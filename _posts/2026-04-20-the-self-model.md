@@ -71,7 +71,7 @@ None of this is told to the system by an external monitor. The system computes i
 
 Every production ML system has monitoring. Dashboards track loss curves, accuracy metrics, latency, memory usage. An engineer reads the dashboard and decides what to do. The system itself is oblivious.
 
-The difference between external monitoring and a self-model is the difference between a patient and a doctor. A patient can say "my chest hurts." That's a self-model: internal access to one's own state, informing one's own decisions. A doctor has external monitoring: instruments, tests, charts. Both produce useful information. But only the patient's information is available *to the patient* for autonomous action.
+The difference between external monitoring and a self-model is the difference between a patient and a doctor. A patient can say "my chest hurts". That's a self-model: internal access to one's own state, informing one's own decisions. A doctor has external monitoring: instruments, tests, charts. Both produce useful information. But only the patient's information is available *to the patient* for autonomous action.
 
 If you want a system that manages itself, it must be the patient, not the doctor. It must have internal access to its own state. External monitoring creates a dependency: the system needs someone else to read the dashboard and act on it. A self-model makes that dependency unnecessary.
 
