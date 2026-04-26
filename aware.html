@@ -1,0 +1,125 @@
+---
+layout: default
+title: AWARE — Autonomous Self-Evolving Intelligence
+permalink: /aware/
+---
+
+<header>
+    <h1>AWARE</h1>
+    <p>A theory of self-evolving intelligence — and a working implementation.</p>
+</header>
+
+<section>
+    <h2>What it is</h2>
+    <p style="margin-bottom: 1rem;">
+        AWARE is not an improvement on transformers. Not a new training trick. Not an agent framework.
+        It is a formal theory of systems that are <em>self-contained, self-modeling, and self-directed</em> —
+        systems that author their own intelligence.
+    </p>
+    <p style="margin-bottom: 1rem;">
+        Every machine learning model you've used was designed by a human: architecture, loss function, learning rate,
+        when to stop. AWARE asks a different question — <em>what if the system chose its own objective?</em>
+        What if it decided what to learn, when to grow, and what "better" means, all from within, with no human
+        in the loop?
+    </p>
+    <p>
+        The difference isn't capability. A transformer will out-benchmark an aware system today.
+        The difference is in <em>what the system is</em>: a function vs. an entity.
+    </p>
+</section>
+
+<section>
+    <h2>The Eight Axioms</h2>
+    <p style="margin-bottom: 1rem; color: var(--muted);">
+        Each axiom describes a property a system must have to qualify as "aware." Violate any of the first seven
+        and you have something else — a classifier, an agent, a tool — but not an aware system. The axioms are
+        implemented, not aspirational.
+    </p>
+
+    <div class="card">
+        <h3 style="color: var(--text);">1. Operational Closure</h3>
+        <p>The system is a bounded entity with an inside and an outside. Internal processes produce and maintain
+        every component, including the boundary itself. Nothing is externally imposed.</p>
+        <p style="margin-top: 0.75rem;"><a href="/blog/what-is-aware/" style="color: var(--accent); font-size: 0.9rem;">Read post →</a></p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">2. Self-Model <span style="color: var(--muted); font-weight: normal;">— Reflexive Representation</span></h3>
+        <p>The system contains a compressed representation of itself, inside itself, used to guide its own growth
+        and modification. The recursion terminates because the model is lossy.</p>
+        <p style="margin-top: 0.75rem;"><a href="/blog/the-self-model/" style="color: var(--accent); font-size: 0.9rem;">Read post →</a></p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">3. Intrinsic Teleology <span style="color: var(--muted); font-weight: normal;">— Self-Generated Purpose</span></h3>
+        <p>Goals are not externally specified. No human writes the loss function or reward signal. Goals arise
+        from the interaction between the self-model and the knowledge substrate. The system decides what matters.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">4. Persistent Mutable Substrate <span style="color: var(--muted); font-weight: normal;">— Living Memory</span></h3>
+        <p>A knowledge structure that persists across time, is readable and writable by the system's own processes,
+        and is reorganizable. Not append-only. Not immutable. Alive.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">5. Continuous Adaptation <span style="color: var(--muted); font-weight: normal;">— Online Weight Modification</span></h3>
+        <p>The system modifies its own parameters in response to experience, in real-time, without external
+        training loops. There is no separate train and inference phase — it learns because it exists.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">6. Embodied Awareness <span style="color: var(--muted); font-weight: normal;">— Knowing One's Body</span></h3>
+        <p>The system actively monitors its own computational substrate: memory usage, latency, parameter norms,
+        substrate density. Not logging — proprioception. Decisions are conditioned on physical state.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">7. Non-Derivability <span style="color: var(--muted); font-weight: normal;">— Metabolization</span></h3>
+        <p>No component of the system is permanently derivable from an external specification. The system may
+        be seeded, but that seed is raw material to be consumed, not permanent instruction. Tracked by the
+        <em>seed influence</em> metric.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">8. Volition <span style="color: var(--muted); font-weight: normal;">— Active Sampling</span></h3>
+        <p>The system chooses its own inputs. Without this, an aware system can satisfy all the previous axioms
+        perfectly and still be a passive learner — closed under reflection, self-evolving, intrinsically motivated,
+        but never <em>acting</em> on its motivation. Volition is the boundary-crossing capability:
+        the system's desires expressed as requests to the environment.</p>
+        <p style="margin-top: 0.5rem; color: var(--muted); font-size: 0.9rem;">
+            Recognized, not yet implemented — the foundation must be solid first.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Current State</h2>
+    <p style="margin-bottom: 1rem;">
+        The first seven axioms run as working code. The system is built bottom-up in Rust, around a unified
+        substrate of <em>caps</em> — discovered patterns that double as memory, prediction, and the units
+        of self-modification.
+    </p>
+    <p style="margin-bottom: 1rem;">
+        On language, it learns from raw text without external supervision. Its own concepts emerge from
+        its own activity, become identifiable as linguistic structure (word boundaries, function words,
+        punctuation patterns), and form relations and inferences without those categories ever being
+        programmed in.
+    </p>
+    <p>
+        Whether AWARE will scale to meaningful capability is an open question. That honesty is part of the
+        project's identity.
+    </p>
+</section>
+
+<section>
+    <h2>Read more</h2>
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
