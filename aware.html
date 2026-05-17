@@ -1,0 +1,117 @@
+---
+layout: default
+title: AWARE - Identifiable Computational Units for AI
+permalink: /aware/
+---
+
+<header>
+    <h1>AWARE</h1>
+    <p>Research on identifiable computational units for AI systems.</p>
+</header>
+
+<section>
+    <h2>Current research</h2>
+    <p style="margin-bottom: 1rem;">
+        AWARE introduces <strong>caps</strong> (capability nodes): identifiable, lifecycle-managed
+        computational units. Each cap carries a stable identifier across training, supports lifecycle
+        operations (discovery, freezing, replacement, growth), and exposes its learned content for
+        inspection. The cap primitive is general; the current empirical work integrates it into
+        transformer-style language models.
+    </p>
+
+    <div class="card" style="border-left: 3px solid var(--accent);">
+        <h3 style="color: var(--text);">Headline empirical result</h3>
+        <p>
+            On TinyStories at matched parameter count (~895K), the cap-input architecture with
+            3-token windows achieves <strong>val perplexity 13.71 ± 0.33</strong> versus a
+            pure-transformer baseline of <strong>28.00 ± 0.11</strong> - a 51% perplexity reduction,
+            multi-seed validated.
+        </p>
+        <p style="margin-top: 0.75rem; font-size: 0.95rem;">
+            <a href="https://github.com/shyble/aware/blob/main/papers/caps_primitive.md" style="color: var(--accent);">Read the paper</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/shyble/aware" style="color: var(--accent);">Code on GitHub</a>
+        </p>
+    </div>
+
+    <p style="margin-top: 1.5rem;">
+        The paper deliberately covers a narrow, well-defined contribution: the cap primitive and one
+        validated configuration. Continual learning, audit-based replacement, concept stability, and
+        cap-native deep architectures are sketched as integration paths but left for follow-up work.
+    </p>
+</section>
+
+<section>
+    <h2>Long-term research direction</h2>
+    <p style="margin-bottom: 1rem; color: var(--muted);">
+        Beyond the current paper, AWARE explores a longer-term question: what properties does a system
+        need to have to be <em>truly autonomous</em> - self-contained, self-modeling, self-directed?
+        The questions below frame an open research agenda. They are <strong>not</strong> currently
+        validated; the cap primitive is the substrate on which we plan to build toward them.
+    </p>
+
+    <div class="card">
+        <h3 style="color: var(--text);">1. Operational Closure</h3>
+        <p>Can a system's internal processes produce and maintain every component - including the
+        boundary itself - without external orchestration?</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">2. Self-Model <span style="color: var(--muted); font-weight: normal;">- Reflexive Representation</span></h3>
+        <p>Can a system contain a compressed representation of itself, used to guide its own growth
+        and modification? The recursion would terminate because the model is lossy.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">3. Intrinsic Teleology <span style="color: var(--muted); font-weight: normal;">- Self-Generated Purpose</span></h3>
+        <p>Can goals arise from the interaction between a self-model and a knowledge substrate, rather
+        than being externally specified as a loss function or reward signal?</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">4. Persistent Mutable Substrate <span style="color: var(--muted); font-weight: normal;">- Living Memory</span></h3>
+        <p>What does a knowledge structure look like that persists across time, is readable and
+        writable by the system's own processes, and is reorganizable - not append-only, not immutable?</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">5. Continuous Adaptation <span style="color: var(--muted); font-weight: normal;">- Online Weight Modification</span></h3>
+        <p>Can a system modify its own parameters in response to experience, in real-time, without
+        separate train and inference phases?</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">6. Embodied Awareness <span style="color: var(--muted); font-weight: normal;">- Knowing One's Body</span></h3>
+        <p>Can a system monitor its own computational substrate (memory, latency, parameter norms,
+        substrate density) and condition decisions on that physical state?</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">7. Non-Derivability <span style="color: var(--muted); font-weight: normal;">- Metabolization</span></h3>
+        <p>Can no component of a system remain permanently derivable from an external specification?
+        The seed is raw material to be metabolized, not permanent instruction.</p>
+    </div>
+
+    <div class="card">
+        <h3 style="color: var(--text);">8. Volition <span style="color: var(--muted); font-weight: normal;">- Active Sampling</span></h3>
+        <p>Can a system choose its own inputs - expressing internal motivation as outward requests to
+        the environment? Without this, even a system that satisfies the prior seven would remain a
+        passive learner.</p>
+    </div>
+</section>
+
+<section>
+    <h2>Posts</h2>
+    <p style="color: var(--muted); font-size: 0.95rem; margin-bottom: 1rem;">
+        Early exploratory essays on AWARE's long-term direction. Written before the current empirical
+        work; the ideas remain open research questions.
+    </p>
+    <ul class="post-list">
+        {% for post in site.posts %}
+        <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
