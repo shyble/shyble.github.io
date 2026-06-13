@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
+    {% assign meta_description = page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 %}
+    <meta name="description" content="{{ meta_description }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ meta_description }}">
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
     <style>
         :root {
             --bg: #0d1117;
@@ -77,6 +86,19 @@
         section {
             margin-bottom: 3rem;
         }
+
+        .intro {
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        .more-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .more-link:hover { text-decoration: underline; }
 
         h2 {
             font-size: 1.3rem;

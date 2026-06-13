@@ -1,4 +1,7 @@
 title: Shyble
-description: MSc Data Science · Software Engineer Manager · AI Researcher
+description: Software Engineering Manager · AI Researcher · MSc Data Science
 url: https://shyble.github.io
 permalink: /blog/:title/
+author: Kürşat Kutlu Aydemir
+plugins:
+  - jekyll-feed
