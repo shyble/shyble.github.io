@@ -2,6 +2,7 @@
 layout: post
 title: "Tracking YouTube Video Velocity Without Burning Your API Quota"
 author: Kürşat Kutlu Aydemir
+tags: [YouTube, Go, API]
 ---
 
 *How I monitored views-per-hour across thousands of videos on a 10,000-unit-a-day budget, by never using the expensive endpoint.*

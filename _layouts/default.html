@@ -136,6 +136,66 @@
         .tag.ai { border-color: var(--accent3); color: var(--accent3); }
         .tag.infra { border-color: var(--accent2); color: var(--accent2); }
 
+        /* Tag filter (blog) */
+        .tag-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag-btn {
+            font-family: inherit;
+            cursor: pointer;
+            padding: 0.3rem 0.85rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--muted);
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        .tag-btn:hover { color: var(--text); border-color: var(--muted); }
+
+        .tag-btn.active {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .tag-count {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-left: 0.15rem;
+        }
+
+        /* Tag chips on posts */
+        .post-tags {
+            margin-top: 0.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        a.tag {
+            color: var(--muted);
+            text-decoration: none;
+            cursor: pointer;
+            padding: 0.15rem 0.65rem;
+            font-size: 0.8rem;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a.tag:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        a.tag.tag-sm {
+            font-size: 0.7rem;
+            padding: 0.1rem 0.5rem;
+        }
+
         .card {
             background: var(--surface);
             border: 1px solid var(--border);

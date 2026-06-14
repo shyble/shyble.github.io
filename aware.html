@@ -107,7 +107,7 @@ permalink: /aware/
         work; the ideas remain open research questions.
     </p>
     <ul class="post-list">
-        {% for post in site.posts %}
+        {% for post in site.tags['AWARE'] %}
         <li>
             <a href="{{ post.url }}">{{ post.title }}</a>
             <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>

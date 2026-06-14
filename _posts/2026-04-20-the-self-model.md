@@ -2,6 +2,7 @@
 layout: post
 title: "The Mirror That Isn't: How a System Models Itself"
 author: Kürşat Kutlu Aydemir
+tags: [AWARE, "Autonomous AI", "AI research"]
 ---
 
 > *Note: This post is an early exploratory essay on AWARE's long-term direction, written before the current empirical work. The validated research to date is reported in the [cap primitive paper](https://github.com/shyble/aware/blob/main/papers/caps_primitive/caps_primitive.md), which covers a deliberately narrower scope. The ideas in this post remain open research questions for follow-up work.*

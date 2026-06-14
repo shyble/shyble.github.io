@@ -18,6 +18,13 @@ title: Kürşat Kutlu Aydemir - research, software, AI
             {% if post.excerpt %}
             <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</div>
             {% endif %}
+            {% if post.tags.size > 0 %}
+            <div class="post-tags">
+                {% for tag in post.tags %}
+                <a class="tag tag-sm" href="/blog/#{{ tag | slugify }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>
@@ -34,6 +41,21 @@ title: Kürşat Kutlu Aydemir - research, software, AI
             <span>Rust</span>
             <span>ML Research</span>
             <span>Caps</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-content">
+            <img src="images/nart-sagas.png" alt="Nart Sagas" class="card-img">
+            <div>
+                <h3><a href="/nart-sagas/">Nart Sagas</a></h3>
+                <p>A Diablo-style action RPG set in the world of the Circassian Nart sagas — kill, loot, level, and push back Yemynech the plague-bringer across the high Caucasus. In development with Godot 4.</p>
+                <div class="meta">
+                    <span>Godot 4 / C#</span>
+                    <span>Action RPG</span>
+                    <span>Circassian myth</span>
+                </div>
+            </div>
         </div>
     </div>
 

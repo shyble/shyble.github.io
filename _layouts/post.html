@@ -6,4 +6,11 @@ layout: default
     <h1>{{ page.title }}</h1>
     <div class="post-date">{{ page.date | date: "%B %d, %Y" }}</div>
     {{ content }}
+    {% if page.tags.size > 0 %}
+    <div class="post-tags" style="margin-top: 2.5rem;">
+        {% for tag in page.tags %}
+        <a class="tag" href="/blog/#{{ tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
 </article>
