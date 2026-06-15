@@ -14,3 +14,25 @@ layout: default
     </div>
     {% endif %}
 </article>
+
+{% if page.comments != false %}
+<section class="comments" style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+    <h2 style="border: none; margin-bottom: 1rem;">Comments &amp; reactions</h2>
+    <script src="https://giscus.app/client.js"
+            data-repo="shyble/shyble.github.io"
+            data-repo-id="R_kgDORzM-3w"
+            data-category="Announcements"
+            data-category-id="DIC_kwDORzM-384C_MPe"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="bottom"
+            data-theme="dark"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+</section>
+{% endif %}
