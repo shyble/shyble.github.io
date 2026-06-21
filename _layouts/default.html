@@ -265,11 +265,28 @@
             text-decoration: underline;
         }
 
-        .contact .links {
+        header .links {
             margin-top: 1rem;
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        header .links a {
+            display: inline-flex;
+            align-items: center;
+            color: var(--muted);
+        }
+
+        header .links a:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        header .links svg {
+            width: 18px;
+            height: 18px;
         }
 
         footer {
