@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="AWARE mark">
+  <!-- AWARE mark, standalone: a lattice of anonymous units; one cap has
+       identity — lit, wearing a lifecycle ring with an ID notch. -->
+  <defs>
+    <style>
+      .dot  { fill: #64748b; opacity: 0.45; }
+      .cap  { fill: #22d3ee; }
+      .ring { fill: none; stroke: #22d3ee; stroke-width: 3; }
+    </style>
+  </defs>
+
+  <!-- 4 x 3 lattice, 40px pitch -->
+  <g transform="translate(40,20)">
+    <circle class="dot" cx="0"   cy="0"  r="7"/>
+    <circle class="dot" cx="40"  cy="0"  r="7"/>
+    <circle class="dot" cx="80"  cy="0"  r="7"/>
+    <circle class="dot" cx="120" cy="0"  r="7"/>
+
+    <circle class="dot" cx="0"   cy="60" r="7"/>
+    <!-- the cap: same size, same lattice — but it has identity -->
+    <circle class="cap"  cx="40" cy="60" r="9"/>
+    <!-- lifecycle ring, notched: the ID tag -->
+    <path class="ring" d="M 40 42
+                          A 18 18 0 1 0 52.7 47.3" stroke-linecap="round"/>
+    <circle class="dot" cx="80"  cy="60" r="7"/>
+    <circle class="dot" cx="120" cy="60" r="7"/>
+
+    <circle class="dot" cx="0"   cy="120" r="7"/>
+    <circle class="dot" cx="40"  cy="120" r="7"/>
+    <circle class="dot" cx="80"  cy="120" r="7"/>
+    <circle class="dot" cx="120" cy="120" r="7"/>
+  </g>
+</svg>
