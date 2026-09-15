@@ -1,79 +1,295 @@
----
-layout: default
-title: Hearth Siege
-description: A lane tower defense from the Nart sagas. Raise ancestor shrines along the valley roads and hold the last hearth through the Long Night. Coming soon to iPhone.
----
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearth Siege</title>
+<meta name="description" content="A lane tower defense set in the Circassian Nart saga. The heroes rode east. One hearth is still lit, and the night is long.">
+<meta property="og:title" content="Hearth Siege">
+<meta property="og:description" content="The heroes rode east. One hearth is still lit, and the night is long.">
+<meta property="og:image" content="https://shyble.github.io/games/hearth-siege/img/three_roads.jpg">
+<meta name="theme-color" content="#0E0C16">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Eczar:wght@500;600;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* A night game gets a night page: one visual world, painted explicitly. */
+:root{
+  --night:#0E0C16; --deep:#141122; --raised:#1C1830;
+  --bone:#EDE6D8; --body:#C4BBCB; --muted:#8B819C;
+  --ember:#FF9E42; --ember-deep:#C2551C;
+  --moon:#8FA4D6; --rule:#2A2440; --rule-soft:#221D36;
+  --ink-on-ember:#1A0E06;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--night); color:var(--body);
+  font-family:"Alegreya Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:Eczar,Georgia,"Times New Roman",serif;color:var(--bone);
+  margin:0;text-wrap:balance;font-weight:600;line-height:1.15}
+h1{font-size:clamp(44px,9vw,86px);letter-spacing:-.02em;font-weight:700}
+h2{font-size:clamp(26px,3.6vw,36px);letter-spacing:-.01em}
+h3{font-size:20px}
+p{margin:0;max-width:64ch}
+a{color:var(--ember)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ember);font-weight:700}
+.lede{font-size:clamp(18px,2.2vw,21px);color:var(--bone)}
+.dim{color:var(--muted)}
 
-<header style="padding-bottom: 1rem;">
-    <img src="/images/hearth-siege-art.jpg" alt="Setenei keeping watch at her hearth" style="max-width: min(100%, 360px); height: auto; border-radius: 0.75rem; border: 1px solid var(--border);">
-    <h1 style="margin-top: 1.25rem;">Hearth Siege</h1>
-    <p>Hold the last fire through the Long Night</p>
+/* ---- hero: the premise and the thing itself ---- */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--rule)}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(90% 60% at 50% 108%, rgba(255,158,66,.20), transparent 62%),
+    radial-gradient(60% 40% at 12% 8%, rgba(143,164,214,.10), transparent 70%);}
+.hero-grid{position:relative;display:grid;gap:44px;padding:76px 0 84px;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.85fr);
+  padding:96px 0 104px}}
+.hero h1 .flame{color:var(--ember)}
+.hero p{margin-top:22px}
+.saga{margin-top:30px;padding-left:20px;border-left:2px solid var(--ember-deep);
+  font-family:Eczar,Georgia,serif;font-style:italic;font-size:20px;color:var(--bone)}
+.saga cite{display:block;margin-top:8px;font-family:"Alegreya Sans",sans-serif;
+  font-style:normal;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.shot{display:block;width:100%;height:auto;border-radius:18px;
+  border:1px solid var(--rule);box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
+.hero-shot{max-width:330px;margin:0 auto;transform:rotate(-1.6deg)}
+
+/* ---- sections ---- */
+section{padding:78px 0;border-bottom:1px solid var(--rule-soft)}
+.head{max-width:64ch}
+.head p{margin-top:14px}
+
+/* the watches: the game's own chapter table */
+.watches{margin-top:34px;border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.watch{display:grid;grid-template-columns:88px minmax(0,1fr);gap:0;
+  border-bottom:1px solid var(--rule-soft)}
+@media(min-width:760px){.watch{grid-template-columns:110px 200px minmax(0,1fr)}}
+.watch:last-child{border-bottom:0}
+.watch>*{padding:15px 18px}
+.watch .no{font-family:Eczar,serif;color:var(--muted);font-variant-numeric:tabular-nums;
+  border-right:1px solid var(--rule-soft);white-space:nowrap}
+.watch .name{font-family:Eczar,serif;font-size:19px;color:var(--bone);font-weight:600}
+@media(min-width:760px){.watch .name{border-right:1px solid var(--rule-soft)}}
+.watch .what{color:var(--body);grid-column:1/-1}
+@media(min-width:760px){.watch .what{grid-column:auto}}
+.watch:nth-child(odd){background:var(--deep)}
+.watch .boss{color:var(--ember);font-weight:500}
+
+/* what it is: hairline list, not a wall of cards */
+.points{margin-top:34px;display:grid;gap:0}
+.point{display:grid;gap:6px;padding:24px 0;border-top:1px solid var(--rule-soft)}
+@media(min-width:760px){.point{grid-template-columns:260px minmax(0,1fr);gap:32px;align-items:baseline}}
+.point:first-child{border-top:0}
+.point h3{color:var(--ember)}
+
+/* screens */
+.screens{display:grid;gap:20px;margin-top:34px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.screens figure{margin:0}
+.screens figcaption{margin-top:12px;font-size:14px;color:var(--muted)}
+
+/* the valley, in numbers */
+.tally{display:grid;gap:1px;margin-top:34px;background:var(--rule);
+  border:1px solid var(--rule);border-radius:14px;overflow:hidden;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.tally div{background:var(--deep);padding:20px}
+.tally b{display:block;font-family:Eczar,serif;font-size:34px;color:var(--ember);
+  font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.tally span{display:block;margin-top:8px;font-size:13px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.tally-note{margin-top:14px;font-size:14.5px;color:var(--muted)}
+
+/* heroes */
+.names{margin-top:34px;display:grid;gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.name-card{background:var(--deep);border:1px solid var(--rule);border-radius:14px;padding:22px}
+.name-card h3{font-size:22px;color:var(--bone)}
+.name-card .role{margin-top:2px;font-size:13px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ember)}
+.name-card p{margin-top:12px;font-size:15.5px}
+
+footer{padding:56px 0 72px;color:var(--muted);font-size:14.5px}
+footer p{max-width:60ch}
+footer .status{display:inline-block;padding:4px 12px;border-radius:999px;
+  border:1px solid var(--ember-deep);color:var(--ember);font-size:12.5px;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">A tower defense of the Nart saga</div>
+      <h1>Hearth&nbsp;<span class="flame">Siege</span></h1>
+      <p class="lede">The horn sounded beyond the mountains and the heroes rode east.
+      The village stands emptied of them, and one by one its hearths go dark.</p>
+      <p style="margin-top:16px">Setenei keeps hers. The Chinta smell the unguarded smoke,
+      and the Inyzh are coming for the fire that was stolen from them — down every road at
+      once. You have the ground beside those roads, the stones to build on it, and the
+      names of the absent to call.</p>
+      <blockquote class="saga">“Some say she held them ten waves of the night. Some say a
+      hundred. Some say the dawn itself came only because she shamed it into rising.
+      Every telling is true.”
+      <cite>The frame of the game</cite></blockquote>
+    </div>
+    <div>
+      <img class="shot hero-shot" src="img/three_roads.jpg" width="560" height="1214"
+           alt="Three roads converging on a lit hearth at night, gate torches burning at each mouth.">
+    </div>
+  </div>
 </header>
 
-<section>
-    <p class="intro">
-        The Narts have ridden to war beyond the mountains, and one by one the
-        valley's hearths are going dark. Only Setenei still keeps hers. Chint
-        raiders and Inyzh giants are coming down the roads to take back the fire
-        Sosruquo once stole from them, and every road ends at her hearth.
-    </p>
-</section>
+<main>
+<section class="wrap">
+  <div class="head">
+    <div class="eyebrow">How it plays</div>
+    <h2>A lane defense that keeps your clock</h2>
+    <p>One-handed, portrait, no timers between you and the fight. Everything below is in
+    the build.</p>
+  </div>
 
-<section>
-    <h2>What's in the game</h2>
-    <div class="card">
-        <div class="card-content">
-            <div>
-                <p style="color: var(--text);">
-                    <strong>Four ancestor shrines.</strong> Raise and upgrade them beside
-                    the road. Sosruquo's fire burns whole packs up close, Pataraz's arrows
-                    reach a little further, Setenei's mist slows every raider inside it,
-                    and Adiyukh's light makes each kill pay more gold.
-                </p>
-                <p style="color: var(--text); margin-top: 0.75rem;">
-                    <strong>A hearth that fights back.</strong> Whatever slips past the
-                    shrines meets the hearth itself. Strengthen it with the gold the
-                    raiders drop, and choose carefully where the next shrine stands.
-                </p>
-                <p style="color: var(--text); margin-top: 0.75rem;">
-                    <strong>Champions and Nart powers.</strong> Every fifth wave a champion
-                    leads the raid, and the last one is the strongest. Answer with the
-                    heroes' own powers once you have earned them: Sosruquo's meteor,
-                    Setenei's mist, and a volley from every arrow shrine.
-                </p>
-                <p style="color: var(--text); margin-top: 0.75rem;">
-                    <strong>Every night makes the next one stronger.</strong> Embers from
-                    each telling feed the Rite of the Names, a tree of lasting blessings
-                    for your shrines, your hearth, and the heroes who answer the call.
-                </p>
-                <p style="color: var(--text); margin-top: 0.75rem;">
-                    <strong>A weekly night for everyone.</strong> Each week the same road
-                    and the same night for every player, ranked on a weekly leaderboard.
-                </p>
-            </div>
-        </div>
+  <div class="points">
+    <div class="point">
+      <h3>The fire is in the middle</h3>
+      <p>Roads come at the hearth from every quarter — one while you are learning, three
+      deep in the valley. Adding a road is the largest step the game takes, and each wave
+      names the one it is pushing down before it arrives.</p>
     </div>
-</section>
-
-<section>
-    <h2>The roads</h2>
-    <p style="margin-bottom: 1rem;">Five roads and ninety levels down the valley, each one told again and harder.</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
-        <figure style="flex: 1 1 240px; margin: 0;">
-            <img src="/images/hearth-siege-quazhe-road.jpg" alt="Quazhe Road at dusk, lamplit houses along the road to the hearth" style="width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.5rem; border: 1px solid var(--border);">
-            <figcaption style="color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem;"><strong style="color: var(--text);">Quazhe Road</strong> · through the village to Setenei's door</figcaption>
-        </figure>
-        <figure style="flex: 1 1 240px; margin: 0;">
-            <img src="/images/hearth-siege-mountain-pass.jpg" alt="Mountain Pass, a switchback path climbing to a signal fire" style="width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 0.5rem; border: 1px solid var(--border);">
-            <figcaption style="color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem;"><strong style="color: var(--text);">Mountain Pass</strong> · where the giants come early</figcaption>
-        </figure>
+    <div class="point">
+      <h3>Choose your own ground</h3>
+      <p>No pads to pick between. Any legal earth beside a road takes a shrine, and the
+      board grows as the night runs long — a stone every few waves, so a twenty-minute
+      telling never fills up halfway through.</p>
     </div>
+    <div class="point">
+      <h3>Four ancestors, four answers</h3>
+      <p>Sosruquo's fire, Pataraz's arrows, Setenei's mist, Adiyukh's light. Each shrine
+      does a different job on the road, and each hero's called answer is worth what you
+      have actually built — more shrines, or higher ones, is a bigger answer.</p>
+    </div>
+    <div class="point">
+      <h3>The valley keeps your hour</h3>
+      <p>The map is lit for the time on your phone, and keeps being lit for it. Take the
+      road at noon and you fight in daylight; play long enough to cross a real dusk and
+      the dark comes down over you as it does outside.</p>
+    </div>
+    <div class="point">
+      <h3>Embers are memory</h3>
+      <p>A fallen hearth is not a loss, it is a telling that ended. What it earns is spent
+      honoring the names of the absent heroes — and every rank honored writes a verse into
+      the codex.</p>
+    </div>
+  </div>
 </section>
 
-<section>
-    <h2>Get it</h2>
-    <p style="color: var(--muted);">Coming soon to the App Store for iPhone.</p>
-    <p style="margin-top: 1rem;">
-        <a href="/nart-sagas/" class="more-link">Set in the world of Nart Sagas →</a>
-    </p>
+<section class="wrap">
+  <div class="head">
+    <div class="eyebrow">The structure</div>
+    <h2>The night is told in watches</h2>
+    <p>Every ten waves the sky turns, the roster changes and a champion closes the chapter.
+    Past the last watch the night begins again, harder, and is named again.</p>
+  </div>
+  <div class="watches">
+    <div class="watch"><div class="no">1–10</div><div class="name">Dusk</div>
+      <div class="what">Ember-orange horizon, fading. Runners and footmen probe the road.
+        <span class="boss">The Chint War-Chief</span> closes it.</div></div>
+    <div class="watch"><div class="no">11–20</div><div class="name">Moonrise</div>
+      <div class="what">Cold blue, long shadows.
+        <span class="boss">The Inyzh Stoke-Keeper</span> comes for your gold, not your fire —
+        fell him before he carries it into the dark.</div></div>
+    <div class="watch"><div class="no">21–30</div><div class="name">Wolf-Hour</div>
+      <div class="what">Near black; even the fire whispers.
+        <span class="boss">The Chint War-Chief</span> comes back for a second duel.</div></div>
+    <div class="watch"><div class="no">31–40</div><div class="name">Bone-Hour</div>
+      <div class="what">Sickly green-grey; the dead lend their voices.
+        <span class="boss">Old Inyzh, the First Glutton</span>, comes personally.</div></div>
+    <div class="watch"><div class="no">41–50</div><div class="name">Ember-Hour</div>
+      <div class="what">A red rain of sparks. From here the three champions
+        <span class="boss">take turns</span> closing every watch.</div></div>
+    <div class="watch"><div class="no">51+</div><div class="name">The Hour Without a Name</div>
+      <div class="what">Starless. The night cycles — a Second Night, a Third — the whole
+        roster stiffening each time, every cycle banner-named.</div></div>
+  </div>
 </section>
+
+<section class="wrap">
+  <div class="head">
+    <div class="eyebrow">The valley</div>
+    <h2>Chapters of one long night</h2>
+    <p>Each road is a chapter of the same Long Night, and each of its levels has its own
+    length, its own weight and its own map — generated, and the same map every time anyone
+    walks it.</p>
+  </div>
+  <div class="tally">
+    <div><b>5</b><span>roads</span></div>
+    <div><b>90</b><span>levels</span></div>
+    <div><b>4</b><span>ancestor shrines</span></div>
+    <div><b>3</b><span>called powers</span></div>
+  </div>
+  <p class="tally-note">Where the build stands today. The valley is still being cut —
+  roads, levels and the nights past them are all still going in.</p>
+  <div class="screens">
+    <figure>
+      <img class="shot" src="img/night_road.jpg" width="560" height="1214"
+           alt="Two roads meeting at the hearth under a night sky, shrines standing along the verge.">
+      <figcaption>Two roads onto one fire, the gate torches lit at each mouth.</figcaption>
+    </figure>
+    <figure>
+      <img class="shot" src="img/day_valley.jpg" width="560" height="1214"
+           alt="The same valley in daylight — green woods, a sand-coloured road, braziers banked to embers.">
+      <figcaption>The same ground at midday. The braziers bank; the map keeps your hour.</figcaption>
+    </figure>
+    <figure>
+      <img class="shot" src="img/ui_narts.jpg" width="560" height="1213"
+           alt="The Narts screen listing four ancestors and how many of their names have been spoken.">
+      <figcaption>The Rite of the Names — what a fallen hearth buys.</figcaption>
+    </figure>
+    <figure>
+      <img class="shot" src="img/ui_hud_full.jpg" width="560" height="1213"
+           alt="The in-game interface during a champion fight, showing wave, gold, hearth health and hero powers.">
+      <figcaption>A champion on the road, and the three answers you can call.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="head">
+    <div class="eyebrow">The names</div>
+    <h2>The heroes never walk on screen</h2>
+    <p>They are away, in the war beyond the mountains. Honor a name and something of them
+    answers across it.</p>
+  </div>
+  <div class="names">
+    <div class="name-card"><h3>Setenei</h3><div class="role">The wise-mother</div>
+      <p>Eternally young, and the only one still at her fire. She is never afraid — dry,
+      warm and unbreakable. Her mist settles over every road at once.</p></div>
+    <div class="name-card"><h3>Sosruquo</h3><div class="role">Born from stone</div>
+      <p>Born red-hot from rock, and the one who stole the fire from the giants in the
+      first place. He knows what it is worth. A burning boulder falls from beyond the ridge.</p></div>
+    <div class="name-card"><h3>Pataraz</h3><div class="role">The avenger</div>
+      <p>The archer of the ridge. Arrows fall from a range no bow should reach, and every
+      shrine raised in his name looses its own storm.</p></div>
+    <div class="name-card"><h3>Adiyukh</h3><div class="role">Of the shining arms</div>
+      <p>She whose hands lit the road home for travellers. Her light finds what the dark
+      was keeping, and pays for it.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <span class="status">In development</span>
+  <p>Hearth Siege is a portrait tower defense for iOS, built in Unity. Names and creatures
+  follow Kabardian forms — Setenei, Adiyukh, Inyzh, Chinta.</p>
+  <p style="margin-top:14px">Free to play. No interstitial ads, ever.</p>
+</footer>
+
+</body>
+</html>
