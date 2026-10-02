@@ -2,7 +2,8 @@
 layout: post
 title: "Noetic: Knowing Is Not Understanding"
 author: Kürşat Kutlu Aydemir
-date: 2026-10-02 00:30:00 +0300
+logo: /images/noetic-logo.png
+date: 2026-10-01 20:00:00 +0300
 tags: [Noetic, "AI", "AI safety"]
 ---
 
