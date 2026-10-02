@@ -3,7 +3,7 @@ layout: post
 title: "Noetic: Looking for Partners"
 author: Kürşat Kutlu Aydemir
 logo: /images/noetic-logo.png
-date: 2026-10-02 00:30:00 +0300
+date: 2026-10-02 12:00:00 +0300
 tags: [Noetic, "AI", "AI safety", "Startups"]
 ---
 
