@@ -42,4 +42,4 @@ Built from scratch, tested with its pass criteria fixed in advance and its tests
 - **Design partners** in regulated domains, where "why" and "I don't know" matter.
 - **Researchers and engineers** who want AI that can be checked, not just trusted.
 
-*Reach me on [X](https://x.com/tlhepsh) or by [email](mailto:kursatkutlu@live.com).*
+*Reach me on [X](https://x.com/tlhepsh) or by [email](mailto:kursat@noegon.com).*
